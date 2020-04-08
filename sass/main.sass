@@ -1,0 +1,341 @@
+@import "base"
+
+.navbar
+  background-color: rgba($navColor, 0) !important
+  color: $white !important
+  margin: .4em
+  &-collapse
+    font-family: "MontserratLight"
+    font-size: 14px
+  &-logo
+    font-family: "RalewayRegular"
+    font-size: 65%
+    img
+      width: 1.2em
+
+.nav-link
+  color: $white !important
+  text-align: center
+  margin: 0 .05em
+  &:hover
+    color: $accent !important
+
+.carousel
+  top: -2.2em
+  margin-bottom: -2.2em
+  &-item
+    height: 90vh
+    img
+      height: 100%
+      object-fit: cover
+  &-control-prev,
+  &-control-next
+    color: $white
+  &-indicators
+    grid-template-columns: repeat(2, auto)
+    align-items: center
+    justify-items: center
+    li
+      @include size(11px, 11px)
+      background-color: rgba($grey, 1)
+      border-radius: 50%
+      border: none
+      transition: none
+      margin: 0 .1em .4em
+    .active
+      background-color: transparent
+      border: 1px solid $accent
+  &-caption
+    @include position(none, 20%, 50%, 20%)
+    transform: translateY(50%)
+    justify-items: center
+    h1
+      font-family: "RalewayExtraBold"
+      font-size: 90%
+    h2
+      font-family: "RalewayMedium"
+      font-size: 60%
+    p
+      font-size: 30%
+      max-width: 560px
+      color: rgba($white, .8)
+    .btn-primary
+      font-family: "RalewaySemiBold"
+      font-size: 30%
+      padding: .6em 4.5em
+
+.services
+  padding: 1.2em 0
+  .container
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+  &-block
+    position: relative
+    grid-template-rows: 1.1em 1em auto
+    justify-items: center
+    color: $title
+    cursor: pointer
+    padding: 0 .2em
+    margin-bottom: .7em
+    h4
+      font-family: "RalewaySemiBold"
+      font-size: 42%
+      margin: .6em 0
+    p
+      font-size: 27%
+      color: $text
+      max-width: 300px
+    &::after
+      @include position(none, none, -5%, 50%)
+      @include size(2.2em, 3px)
+      transform: translateX(50%)
+      background-color: rgba($grey, .2)
+    &:hover
+      color: darken($accent, 15%)
+    &:hover &::after
+      background-color: darken($accent, 15%)
+
+.tagline
+  background-color: $light
+  padding-top: 1.2em
+  .container
+    justify-items: center
+  h3
+    font-family: "RalewaySemiBold"
+    font-size: 58%
+  p
+    font-size: 30%
+    color: $text
+    max-width: 600px
+  img
+    width: 100%
+
+.feedback
+  background: $gradient
+  padding: .6em 0
+  border:
+    top: 1px solid rgba($dark, .9)
+    bottom: 1px solid rgba($dark, .9)
+  .container
+    grid-template-columns: 70% 30%
+    align-items: center
+  &-notification
+    h3
+      font-family: "RalewayRegular"
+      font-size: 54%
+      color: $white
+      span
+        color: $accent
+    p
+      font-size: 35%
+      color: rgba($grey, .8)
+      margin: 0
+  .btn-primary
+    justify-self: center
+    font-family: "RalewaySemiBold"
+    font-size: 30%
+    display: block
+
+.portfolio
+  padding: 1.2em 0
+  text-align: center
+  &-title
+    justify-items: center
+    h3
+      font-family: "RalewaySemiBold"
+      font-size: 58%
+      color: $title
+    p
+      font-size: 30%
+      color: $text
+      width: 75%
+  &-menu
+    display: inline-block
+    max-width: 600px
+    .btn-secondary
+      font-family: "MontserratRegular"
+      font-size: 12px
+      padding: 0 1.8em
+      margin: 0 .4em
+  &-gallery
+    grid-template-columns: repeat(3, 1fr)
+    grid-gap: .3em
+    cursor: pointer
+
+    &-item
+      background-color: darken($light, 2%)
+      text-align: left
+      h5
+        font-family: "RalewayMedium"
+        font-size: 38%
+        color: darken($accent, 6%)
+        padding: 1rem 1rem 0
+      p
+        font-size: 12px
+        color: rgba($grey, .8)
+        padding-left: 1rem
+      div
+        background-size: cover
+        background-position: center
+        height: 12rem
+        position: relative
+        &::after
+          @include position(none, 4%, 0, none)
+          border: .3em solid transparent
+          border-bottom: .2em solid darken($light, 2%)
+        span
+          display: none
+
+      &:hover
+        background-color: $dark
+        h5
+          color: $white
+        p
+          color: $accent
+        div
+          &::after
+            border-bottom: .2em solid $dark
+          &::before
+            @include position(0, 0, 0, 0)
+            background-color: rgba(#000, .6)
+          span
+            display: block
+            font-size: 70%
+            opacity: .7
+            &:nth-of-type(1)
+              @include position(none, 35%, 50%, none)
+              transform: translate(-50%, 50%)
+              color: $accent
+            &:nth-of-type(2)
+              @include position(none, none, 50%, 35%)
+              transform: translate(50%, 50%)
+              color: $white
+            &:hover
+              opacity: 1
+
+  &-load-more .btn-primary
+    justify-self: center
+    border-radius: 4px
+    opacity: .9
+    width: 100%
+    &:not(:disabled):not(.disabled):active:focus,
+    &:not(:disabled):not(.disabled).active:focus,
+    .show > &.dropdown-toggle:focus, &:focus, &.focus
+      box-shadow: 0 0 0 0.1rem rgba(darken($buttonColor, 10%), .7)
+
+.features
+  padding: 3em 0
+  background-image: url("../img/features/presentation.jpg")
+  background-size: cover
+  background-position: center
+  justify-items: center
+  color: $white
+  i
+    font-size: 150%
+    cursor: pointer
+    &:hover
+      color: darken($white, 15%)
+  h2
+    font-family: "RalewayMedium"
+    font-size: 58%
+  p
+    font-size: 14px
+    color: rgba($white, .9)
+    max-width: 500px
+
+.mobile-device
+  padding-top: 1.2em
+  color: rgba($grey, .8)
+  .container
+    grid-template-columns: 45fr 55fr
+    align-items: center
+    grid-gap: 1em
+  img
+    width: 100%
+  &-description
+    justify-self: center
+    align-self: center
+    h3
+      font-family: "RalewayRegular"
+      font-size: 58%
+      color: $title
+    p
+      font-size: 28%
+      margin: 1em 0
+      max-width: 500px
+    li
+      grid-template-columns: .7em 1fr
+      align-items: center
+      grid-gap: 0 .2em
+      border: 2px solid rgba($accent, .5)
+      border-radius: 3px
+      padding: 0 .3em
+      margin: .1em 0
+      i
+        font-size: 55%
+        color: $accent
+
+.blog
+  padding: 1em 0 .7em
+  background: $gradient
+  .container
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr))
+    justify-items: center
+    text-align: center
+  &-block
+    position: relative
+    grid-template-rows: 1em auto auto
+    justify-items: center
+    color: $beige
+    padding: 0 .2em
+    margin-bottom: .7em
+    i
+      font-size: 80%
+    h4
+      font-family: "MontserratExtraLight"
+      font-size: 90%
+      color: $white
+    p
+      font-size: 27%
+      max-width: 300px
+    &::after
+      @include position(none, none, -5%, 50%)
+      @include size(1em, 3px)
+      transform: translateX(50%)
+      background-color: rgba($white, .7)
+
+.clients
+  padding: 1.2em 0
+  background-image: url("../img/clients/background.jpg")
+  background-size: cover
+  background-position: center
+
+  grid-template-columns: repeat(auto-fit, minmax(100px, 250px))
+  justify-content: center
+  img
+    align-self: center
+    justify-self: center
+    min-width: 100px
+    max-width: 150px
+    margin: .5em 0
+
+.footer
+  background-color: $black
+  color: rgba($white, .4)
+  font-size: 24%
+  padding: 1.5em 0
+  .container
+    grid-template-columns: repeat(2, 1fr)
+    grid-gap: 2.8em
+  p
+    margin: 0
+    &:nth-of-type(1)
+      justify-self: start
+    &:nth-of-type(2)
+      justify-self: end
+      text-align: right
+  .accent
+    color: rgba($accent, .8)
+  .white
+    color: rgba($white, .8)
+
+@import "media"
